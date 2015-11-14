@@ -3,13 +3,39 @@
  */
 
 angular.module('RDash')
-    .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);
+    .controller('MasterCtrl', ['$scope', '$cookieStore','TitleService','LayoutService', MasterCtrl]);
 
-function MasterCtrl($scope, $cookieStore) {
+function MasterCtrl($scope, $cookieStore,TitleService,LayoutService) {
     /**
      * Sidebar Toggle & Cookie Control
      */
     var mobileView = 992;
+	$scope.path='Home';
+	$scope.showView='true';
+	$scope.showViewLogin='none';
+	
+	$scope.$watch(
+		function () { return LayoutService.isShowView(); },
+		function (newValue, oldValue) {
+		   $scope.showView=LayoutService.isShowView();
+		}
+	);
+	
+	$scope.$watch(
+		function () { return LayoutService.isShowViewLogin(); },
+		function (newValue, oldValue) {
+		   $scope.showViewLogin=LayoutService.isShowViewLogin();
+		}
+	);		
+	
+	$scope.$watch(
+		function () { return TitleService.getTitle(); },
+		function (newValue, oldValue) {
+		   $scope.path=TitleService.getTitle();
+		}
+	);	
+
+	
 
     $scope.getWidth = function() {
         return window.innerWidth;
