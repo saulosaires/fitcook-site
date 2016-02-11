@@ -12,7 +12,7 @@ function MasterCtrl($scope, $cookieStore,TitleService,LayoutService) {
     var mobileView = 992;
 	$scope.path='Home';
 	$scope.showView='true';
-	$scope.showViewLogin='none';
+	$scope.showViewLogin='false';
 	
 	$scope.$watch(
 		function () { return LayoutService.isShowView(); },

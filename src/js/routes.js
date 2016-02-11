@@ -7,32 +7,36 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/browse');
    
         // Application routes
         $stateProvider
             .state('login', {
                 url: '/login',
                 templateUrl: 'templates/login.html',
-				controller:'LoginController as LoginController'
+				controller:'LoginController'
             })		
             .state('saveRecipe', {
                 url: '/saveRecipe',
                 templateUrl: 'templates/detailRecipe.html',
-				controller:'SaveRecipe as SaveRecipe',
+				controller:'SaveRecipe',
 				data: {requireLogin: true}
             })
 			.state('updateRecipe', {
                 url: '/detailRecipe/:id',
                 templateUrl: 'templates/detailRecipe.html',
-				controller:'UpdateRecipe as UpdateRecipe',
+				controller:'UpdateRecipe',
 				data: {requireLogin: true}
             })
             .state('listRecipe', {
                 url: '/listRecipe',
                 templateUrl: 'templates/listRecipe.html',
-				controller:'ConsultRecipe as ConsultRecipe',
+				controller:'ConsultRecipe',
 				data: {requireLogin: true}
+            }).state('browse', {
+                url: '/browse',
+                templateUrl: 'templates/listGridRecipe.html',
+				controller:'ListGridRecipe'
             });
     }
 ]).factory('TitleService', function(){

@@ -9,7 +9,7 @@
   <!-- build:css lib/css/main.min.css -->
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
+  <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.css">
   <link rel="stylesheet" type="text/css" href="css/awesome-bootstrap-checkbox.css">
   <!-- endbuild -->
   <!-- SCRIPTS -->
@@ -36,44 +36,32 @@
   
 </head>
 <body ng-controller="MasterCtrl">
-  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak style="display:{{showView}}">
+  <div id="page-wrapper"  style="display:{{showView}}">
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper" >
-      <ul class="sidebar">
-        <li class="sidebar-main">
-          <a ng-click="toggleSidebar()">
-            FitCook
-            <span class="menu-icon glyphicon glyphicon-transfer"></span>
-          </a>
-        </li>
-        <li class="sidebar-title"><span>Menu</span></li>
-        <li class="sidebar-list">
-          <a href="#/saveRecipe">Salvar Receita <span class="menu-icon fa fa-tachometer"></span></a>
-        </li>
-        <li class="sidebar-list">
-          <a href="#/listRecipe">Consular Receita <span class="menu-icon fa fa-table"></span></a>
-        </li>
-      </ul>
-      <div class="sidebar-footer">
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular" target="_blank">
-            Github
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
-            About
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="#">
-            Support
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- End Sidebar -->
+ <style>
+ 
+ .logo{
+ background: url(img/logo2x.png);
+    background-position: -4px -12px;
+    background-size: 233px 71px;
+    width: 217px;
+    height: 51px;
+    display: block;
+    margin: 101px auto 0 auto;
+    position: relative
+	
+	}
+	
+	.subtitle{
+	
+	    text-align: center;
+    font-size: 22px;
+    color: #FFF;
+    padding-top: 12px;
+	
+	}
+	
+ </style>
 
     <div id="content-wrapper">
       <div class="page-content">
@@ -82,23 +70,42 @@
         <div class="row header" >
           <div class="col-xs-12">
             <div class="user pull-right">
-              <div class="item dropdown">
-                <a href="#" class="dropdown-toggle">
-                  <img src="img/avatar.jpg">
-                </a>
-
-              </div>
-
+    
+			  <div  style="width:200px">
+			  
+			    <li class="sidebar-list">
+				  <a href="#/saveRecipe">Salvar Receita </a>
+				</li>
+				<li class="sidebar-list">
+				  <a href="#/listRecipe">Consular Receita </a>
+				</li>
+			  </div>  
+			  
             </div>
 			
-            <div class="meta">
+			<div class="meta" style="display:none">
+			
               <div class="page">
                 {{path}}
               </div>
               <div class="breadcrumb-links">
                FitCook
               </div>
+			  
             </div>
+			
+			<div >
+			
+			  <a class="logo" >
+			     
+			  </a>
+				 
+			 <h3  class="subtitle">Receitas deliciosas e saudáveis para uma dieta equilibrada!</h3>
+			
+			</div>
+			
+			
+   
           </div>
         </div>
         <!-- End Header Bar -->
